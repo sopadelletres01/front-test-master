@@ -7,9 +7,9 @@ console.log(styles);
 function Card({ img }) {
   const [hasLike, setHasLike] = useState(false);
   const [counter, setCounter] = useState(0);
-  const handleLike = (state) => {
-    setHasLike(state);
-    setCounter(state ? counter + 1 : counter - 1);
+  const toggleLike = () => {
+    setHasLike(!hasLike);
+    setCounter(!hasLike ? counter + 1 : counter - 1);
   };
   return (
     <figure className={styles.card}>
@@ -17,14 +17,12 @@ function Card({ img }) {
         <div className={`${styles.card__cta} ${styles.desktop}`}>
           <div className={`${styles.button} ${styles.like}`}>
             <span className={styles.button__counter}>{counter}</span>
-            <button onClick={() => handleLike(true)}>
+            <button onClick={() => toggleLike()}>
               <Like active={hasLike} />
             </button>
           </div>
           <div className={styles.divider}></div>
           <div className={`${styles.button} ${styles.undo}`}>
-            <span className={styles.button__counter}>{counter}</span>
-            <button onClick={() => handleLike(false)}>Undo</button>
           </div>
         </div>
         <div className={styles.card__price}>
@@ -49,14 +47,12 @@ function Card({ img }) {
       <div className={styles.card__cta}>
         <div className={`${styles.button} ${styles.like}`}>
           <span className={styles.button__counter}>{counter}</span>
-          <button onClick={() => handleLike(true)}>
+          <button onClick={() => toggleLike()}>
             <Like active={hasLike} />
           </button>
         </div>
         <div className={styles.divider}></div>
         <div className={`${styles.button} ${styles.undo}`}>
-          <span className={styles.button__counter}>{counter}</span>
-          <button onClick={() => handleLike(false)}>Undo</button>
         </div>
       </div>
     </figure>
