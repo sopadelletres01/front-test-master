@@ -1,0 +1,16 @@
+$border-color: #bbbbbb87;
+$tablet: 768px;
+
+.images {
+  width: fit-content;
+  padding: 0px 20px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 16px;
+  @media (min-width: $tablet) {
+    flex-flow: wrap row;
+  }
+}

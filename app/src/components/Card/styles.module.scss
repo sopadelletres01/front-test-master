@@ -1,0 +1,99 @@
+$border-color: #bbbbbb87;
+$tablet: 768px;
+.card {
+  border: 1px solid $border-color;
+  width: fit-content;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card__top {
+  position: relative;
+  transition: filter 0.5s;
+  .card__price {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 70px solid #fff;
+    border-right: 115px solid transparent;
+    display: flex;
+    p {
+      margin: 0;
+      font-size: 0.9em;
+      position: absolute;
+      top: -55px;
+      left: 10px;
+    }
+    span {
+      font-size: 0.8em;
+      margin-left: 3px;
+    }
+  }
+  @media (min-width: $tablet) {
+    &:hover {
+      filter: brightness(0.5);
+      .card__cta.desktop {
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        .button{
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  .card__description__author {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    small {
+      color: rgba(143, 140, 140, 0.527);
+    }
+  }
+  * {
+    margin: 0;
+  }
+}
+
+.card__cta {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid $border-color;
+  .divider {
+    border: 1px solid $border-color;
+  }
+  .button {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    button {
+      transition: 0.5s transform;
+    }
+    &:hover.like-button {
+      button {
+        transform: scale(1.1);
+      }
+      svg {
+        color: white;
+      }
+    }
+  }
+  &.desktop {
+    display: none;
+  }
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+$border-color: #bbbbbb87;
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #fff;
+  input{
+    width: clamp(200px,40%,400px);
+    height: fit-content;
+    border: 1px solid $border-color ;
+    background-color: rgba(216, 213, 213, 0.363);
+    padding: 4px 8px;
+    border-radius: 16px;
+  }
+}
